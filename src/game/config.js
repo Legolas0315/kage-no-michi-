@@ -1,0 +1,52 @@
+// 游戏常量配置 — 所有可调参数集中在这里
+export const GAME_WIDTH = 960;
+export const GAME_HEIGHT = 540;
+
+export const PLAYER = {
+  SPEED: 200,
+  JUMP_FORCE: -450,
+  MAX_HEALTH: 3,
+  ATTACK_DAMAGE: 1,
+  DASH_SPEED: 400,
+  DASH_DURATION: 200,
+  DASH_COOLDOWN: 800,
+  INVINCIBLE_DURATION: 1000, // 受伤无敌时间（毫秒）
+};
+
+export const ENEMY = {
+  PATROL_SPEED: 80,
+  CHASE_SPEED: 150,
+  DETECTION_RANGE: 250,
+  ATTACK_RANGE: 50,
+  ATTACK_COOLDOWN: 1500,
+  ARCHER_FIRE_RANGE: 350,
+  ARCHER_FIRE_COOLDOWN: 2000,
+  PROJECTILE_SPEED: 250,
+};
+
+export const SOUL = {
+  MAX_GAUGE: 100,
+  PER_HIT: 12,
+  COLLECTIBLE_AMOUNT: 20,
+  HEAL_COST: 50,
+  SHURIKEN_COST: 25,
+  SHURIKEN_SPEED: 400,
+  SHURIKEN_DAMAGE: 2,
+};
+
+export const TRAP = {
+  DAMAGE: 1,
+  KNOCKBACK_Y: -350,
+};
+
+export const COLORS = {
+  BACKGROUND: 0x1a0a00,
+  PLATFORM: 0x4a3728,
+  PLAYER: 0xffffff,
+  ENEMY: 0xcc4444,
+  HEALTH: 0xff4444,
+  SOUL_GAUGE: 0x4488ff,
+  TRAP: 0xcc3333,
+  COLLECTIBLE: 0xffdd44,
+  SAVE_POINT: 0xeeddcc,
+};

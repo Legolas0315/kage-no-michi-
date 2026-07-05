@@ -1,0 +1,55 @@
+{
+  "worldWidth": 3200,
+  "worldHeight": 540,
+  "playerSpawn": { "x": 100, "y": 400 },
+
+  "platforms": [
+    { "x": 350, "y": 420, "tiles": 3 },
+    { "x": 650, "y": 350, "tiles": 2 },
+    { "x": 900, "y": 400, "tiles": 3 },
+    { "x": 1100, "y": 310, "tiles": 2 },
+    { "x": 1350, "y": 370, "tiles": 4 },
+    { "x": 1700, "y": 340, "tiles": 2 },
+    { "x": 1950, "y": 410, "tiles": 3 },
+    { "x": 2250, "y": 290, "tiles": 2 },
+    { "x": 2550, "y": 370, "tiles": 3 }
+  ],
+
+  "enemies": [
+    { "type": "patrol", "x": 400, "y": 400, "patrolLeft": 280, "patrolRight": 520 },
+    { "type": "patrol", "x": 900, "y": 400, "patrolLeft": 820, "patrolRight": 1050 },
+    { "type": "chase",  "x": 680, "y": 310, "patrolLeft": 650, "patrolRight": 800 },
+    { "type": "archer", "x": 950, "y": 360 },
+    { "type": "chase",  "x": 1400, "y": 330, "patrolLeft": 1350, "patrolRight": 1550 },
+    { "type": "archer", "x": 1950, "y": 370 },
+    { "type": "patrol", "x": 1750, "y": 400, "patrolLeft": 1700, "patrolRight": 1880 },
+    { "type": "chase",  "x": 2300, "y": 400, "patrolLeft": 2200, "patrolRight": 2500 },
+    { "type": "archer", "x": 2580, "y": 330 }
+  ],
+
+  "traps": [
+    { "x": 520, "y": 508, "tiles": 2 },
+    { "x": 1050, "y": 508, "tiles": 1 },
+    { "x": 1500, "y": 508, "tiles": 3 },
+    { "x": 2150, "y": 508, "tiles": 2 }
+  ],
+
+  "collectibles": [
+    { "x": 380, "y": 370 },
+    { "x": 440, "y": 370 },
+    { "x": 670, "y": 300 },
+    { "x": 1120, "y": 260 },
+    { "x": 1400, "y": 320 },
+    { "x": 1730, "y": 290 },
+    { "x": 2000, "y": 360 },
+    { "x": 2280, "y": 240 },
+    { "x": 2600, "y": 320 },
+    { "x": 2700, "y": 400 }
+  ],
+
+  "savePoints": [
+    { "x": 550, "y": 470 },
+    { "x": 1400, "y": 470 },
+    { "x": 2400, "y": 470 }
+  ]
+}
