@@ -160,6 +160,7 @@ export default class GameScene extends Phaser.Scene {
     this.dashKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
     this.attackKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);
     this.shurikenKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.K);
+    this.healKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
 
     // 入场淡入
     this.cameras.main.fadeIn(500);
@@ -572,6 +573,10 @@ export default class GameScene extends Phaser.Scene {
     // 手里剑
     if (Phaser.Input.Keyboard.JustDown(this.shurikenKey)) {
       this.player.fireShuriken();
+    }
+    // 聚气回血
+    if (Phaser.Input.Keyboard.JustDown(this.healKey)) {
+      this.player.heal();
     }
 
     // 战斗

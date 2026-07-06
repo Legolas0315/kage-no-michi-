@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { PLAYER } from '../config.js';
+import { PLAYER, SOUL } from '../config.js';
 import HealthSystem from '../systems/HealthSystem.js';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
@@ -175,6 +175,57 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     const dir = this.facing;
     this.scene.createShuriken(this.x + dir * 24, this.y - 8, dir);
     console.log(`手里剑！剩余气: ${this.soul}`);
+  }
+
+  // === 聚气回血 ===
+
+  heal() {
+    if (this._isDead) return;
+
+    // 血量已满
+    if (this.healthSystem.getHealth() >= this.healthSystem.getMaxHealth()) {
+      this.showHint('生命已满');
+      return;
+    }
+
+    // 从气槽读取真实值
+    const currentSoul = this.soulGauge ? this.soulGauge.currentSoul : this.soul;
+
+    // 气不足
+    if (currentSoul < SOUL.HEAL_COST) {
+      this.showHint('气不足！需要 50 气');
+      return;
+    }
+
+    // 消耗气
+    if (this.soulGauge) {
+      this.soulGauge.currentSoul = currentSoul - SOUL.HEAL_COST;
+      this.soulGauge.drawFill(currentSoul - SOUL.HEAL_COST);
+    }
+    this.soul = currentSoul - SOUL.HEAL_COST;
+
+    // 回血
+    this.healthSystem.heal(1);
+    if (this.healthBar) {
+      this.healthBar.update(this.healthSystem.getHealth());
+    }
+
+    // 治疗音效
+    if (this.soundSystem) this.soundSystem.playCollect();
+
+    // 治疗闪光
+    this.scene.tweens.add({
+      targets: this,
+      alpha: 0.3,
+      duration: 100,
+      yoyo: true,
+      repeat: 2,
+      onComplete: () => {
+        if (!this.invincible) this.setAlpha(1);
+      },
+    });
+
+    console.log(`聚气回血！消耗 50 气，当前 HP: ${this.healthSystem.getHealth()}`);
   }
 
   // 屏幕提示
